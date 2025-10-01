@@ -13,7 +13,7 @@ namespace AstoDimClient.ApiLibrary
         {
             if (!String.IsNullOrEmpty(licenseKey) || !String.IsNullOrEmpty(HWID))
             {
-                string url = $"https://localhost:7025/api/licences/activatelicence?productKey={licenseKey}&HWID={HWID}";
+                string url = $"https://localhost:5025/api/licences/activatelicence?productKey={licenseKey}&HWID={HWID}";
 
                 try
                 {
@@ -49,7 +49,7 @@ namespace AstoDimClient.ApiLibrary
         {
             if (!String.IsNullOrEmpty(licenseKey))
             {
-                string url = $"https://localhost:7025/api/licences/checklicencewithkey?productKey={licenseKey}";
+                string url = $"https://localhost:5025/api/licences/checklicencewithkey?productKey={licenseKey}";
 
                 try
                 {
