@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AstoDimClient.ApiLibrary
+namespace SetupTool.ApiLibrary
 {
     public class ApiProcessor
     {

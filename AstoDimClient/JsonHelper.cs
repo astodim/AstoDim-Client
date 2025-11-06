@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace AstoDimClient
+namespace SetupTool
 {
     public static class JsonHelper
     {
@@ -15,7 +15,7 @@ namespace AstoDimClient
             try
             {
                 string jsonString = JsonConvert.SerializeObject(licenseKey, Formatting.Indented);
-                File.WriteAllText(Application.StartupPath + "licensing.json", jsonString);
+                File.WriteAllText(Application.StartupPath + GlobalVariables.LICENSING_FILE_NAME, jsonString);
             }
             catch (Exception e)
             {
@@ -27,9 +27,9 @@ namespace AstoDimClient
         {
             try
             {
-                if (File.Exists(Application.StartupPath + "licensing.json"))
+                if (File.Exists(Application.StartupPath + GlobalVariables.LICENSING_FILE_NAME))
                 {
-                    string jsonString = File.ReadAllText(Application.StartupPath + "licensing.json");
+                    string jsonString = File.ReadAllText(Application.StartupPath + GlobalVariables.LICENSING_FILE_NAME);
                     return JsonConvert.DeserializeObject<LicenseKey>(jsonString) ?? new LicenseKey();
                 }
                 else
@@ -49,8 +49,8 @@ namespace AstoDimClient
         {
             try
             {
-                if (File.Exists(Application.StartupPath + "licensing.json"))
-                    File.Delete(Application.StartupPath + "licensing.json");
+                if (File.Exists(Application.StartupPath + GlobalVariables.LICENSING_FILE_NAME))
+                    File.Delete(Application.StartupPath + GlobalVariables.LICENSING_FILE_NAME);
             }
             catch (Exception e)
             {

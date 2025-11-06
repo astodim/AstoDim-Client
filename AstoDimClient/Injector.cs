@@ -5,8 +5,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using SetupTool;
 
-namespace AstoDimClient
+namespace SetupTool
 {
     public class Injector
     {
@@ -42,7 +43,7 @@ namespace AstoDimClient
         const uint MEM_RESERVE = 0x00002000;
         const uint PAGE_READWRITE = 4;
 
-        public static void InjectDll(string dllPath = "mobile2FarmBot.dll")
+        public static void InjectDll(string dllPath = GlobalVariables.DLL_NAME)
         {
             try
             {

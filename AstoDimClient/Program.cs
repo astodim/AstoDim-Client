@@ -1,4 +1,4 @@
-namespace AstoDimClient
+namespace SetupTool
 {
     internal static class Program
     {

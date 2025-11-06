@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AstoDimClient.ApiLibrary\AstoDimClient.ApiLibrary.csproj" />
+    <ProjectReference Include="..\AstoDimClient.ApiLibrary\SetupTool.ApiLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>

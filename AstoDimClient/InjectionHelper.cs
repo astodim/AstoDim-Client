@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AstoDimClient
+namespace SetupTool
 {
     public class InjectionHelper
     {
-        static string dllPath = Application.StartupPath + @"injection\mobile2FarmBot.dll";
+        static string dllPath = Application.StartupPath + GlobalVariables.DLL_PATH;
         public static void StartInjection()
         {
             if(File.Exists(dllPath))

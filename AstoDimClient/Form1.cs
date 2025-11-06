@@ -1,12 +1,12 @@
-﻿using AstoDimClient.ApiLibrary;
-using AstoDimClient.Properties;
+﻿using SetupTool.ApiLibrary;
+using SetupTool.Properties;
 using System.Management;
 using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 
-namespace AstoDimClient
+namespace SetupTool
 {
     public partial class frmClientMain : Form
     {
@@ -50,7 +50,7 @@ namespace AstoDimClient
             licenseKey = String.Empty;
             HWID = GetMotherboardID();
 
-            if (File.Exists(Application.StartupPath + "licensing.json"))
+            if (File.Exists(Application.StartupPath + GlobalVariables.LICENSING_FILE_NAME))
             {
                 if (licenseKeyGlobal is null)
                 {
@@ -102,9 +102,10 @@ namespace AstoDimClient
                             };
                             JsonHelper.WriteKeyToFile(licenseKeyGlobal);
 
-                            lblLicenseKey.Text = licenseKey;
                             label1.Visible = false;
+                            isTextHidden = true;
                             mskLicenseKey.Visible = false;
+                            btnHideKey.BackgroundImage = Resources.see_eye_visible_icon_1878261;
                             btnActivateLicense.Visible = false;
                             btnInjectBot.Visible = true;
 
@@ -146,14 +147,16 @@ namespace AstoDimClient
                             };
                             JsonHelper.WriteKeyToFile(licenseKeyGlobal);
 
-                            lblLicenseKey.Text = licenseKey;
                             label1.Visible = false;
+                            isTextHidden = true;
                             mskLicenseKey.Visible = false;
+                            btnHideKey.BackgroundImage = Resources.see_eye_visible_icon_1878261;
                             btnActivateLicense.Visible = false;
                             btnInjectBot.Visible = true;
                             lblRemaining.Visible = true;
                             lblRemaining.Text = $"Lisansin kalan süresi: {checkResult.apiKey.DaysLeft} gün";
                             timer1.Enabled = true;
+
                         }
                         else
                         {
@@ -190,13 +193,7 @@ namespace AstoDimClient
             return "null";
         }
 
-        private void mskLicenseKey_Enter(object sender, EventArgs e)
-        {
-            mskLicenseKey.Select(0, 0);
-        }
-
-        bool isTextHidden;
-        private void btnHideKey_Click(object sender, EventArgs e)
+        private void maskLicenseKey()
         {
             isTextHidden = !isTextHidden;
             if (isTextHidden)
@@ -211,9 +208,20 @@ namespace AstoDimClient
             }
         }
 
+        private void mskLicenseKey_Enter(object sender, EventArgs e)
+        {
+            mskLicenseKey.Select(0, 0);
+        }
+
+        bool isTextHidden;
+        private void btnHideKey_Click(object sender, EventArgs e)
+        {
+            maskLicenseKey();
+        }
+
         private void frmClientMain_Load(object sender, EventArgs e)
         {
-            if (File.Exists("licensing.json"))
+            if (File.Exists(GlobalVariables.LICENSING_FILE_NAME))
             {
                 licenseKeyGlobal = JsonHelper.ReadKeyFromFile();
             }
