@@ -8,5 +8,7 @@ namespace SetupTool
         public const string DLL_PATH = @"MediaCache\" + DLL_NAME;
 
         public const string LICENSING_FILE_NAME = "assets_index.json";
+
+        public const string HOST_URL = "https://astodim.com.tr/";
     }
 }

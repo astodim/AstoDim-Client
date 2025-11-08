@@ -9,12 +9,12 @@ namespace SetupTool.ApiLibrary
 {
     public class ApiProcessor
     {
+        public const string hostname = GlobalVariables.HOST_URL;
         public static async Task<(bool success, string status)> ActivateLicense(string licenseKey, string HWID)
         {
             if (!String.IsNullOrEmpty(licenseKey) || !String.IsNullOrEmpty(HWID))
             {
-                string url = $"https://localhost:5025/api/licences/activatelicence?productKey={licenseKey}&HWID={HWID}";
-
+                string url = hostname + $"api/licences/activatelicence?productKey={licenseKey}&HWID={HWID}";
                 try
                 {
                     using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
@@ -49,7 +49,7 @@ namespace SetupTool.ApiLibrary
         {
             if (!String.IsNullOrEmpty(licenseKey))
             {
-                string url = $"https://localhost:5025/api/licences/checklicencewithkey?productKey={licenseKey}";
+                string url = hostname + $"api/licences/checklicencewithkey?productKey={licenseKey}";
 
                 try
                 {
@@ -76,35 +76,6 @@ namespace SetupTool.ApiLibrary
                 }
             }
             return (null, "Lütfen doğru bir lisans anahtarı girdiğinizden emin olunuz.");
-        }
-
-        public static DateTime GetDateTime()
-        {
-            DateTime dateTime = DateTime.MinValue;
-            try
-            {
-                System.Net.HttpWebRequest request = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://www.microsoft.com");
-                request.Method = "GET";
-                request.Accept = "text/html, application/xhtml+xml, */*";
-                request.UserAgent = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)";
-                request.ContentType = "application/x-www-form-urlencoded";
-                request.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
-                System.Net.HttpWebResponse response = (System.Net.HttpWebResponse)request.GetResponse();
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    string todaysDates = response.Headers["date"];
-
-                    dateTime = DateTime.ParseExact(todaysDates, "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
-                        System.Globalization.CultureInfo.InvariantCulture.DateTimeFormat, System.Globalization.DateTimeStyles.AssumeUniversal);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error while trying to get the current date and time from the server: " + ex.Message);
-            }
-            
-
-            return dateTime;
         }
     }
 }

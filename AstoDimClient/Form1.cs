@@ -20,14 +20,6 @@ namespace SetupTool
         ApiKey? globalKey;
         LicenseKey licenseKeyGlobal;
 
-        static DateTime GetDateTime()
-        {
-            DateTime dateTimeNow = ApiProcessor.GetDateTime();
-            if (dateTimeNow == DateTime.MinValue)
-                MessageBox.Show("Sunuculara erişilemedi. Lütfen internet bağlantınızı kontrol ediniz.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return dateTimeNow;
-        }
-
         static string GetMotherboardID()
         {
             string cpuId = GetWmiValue("Win32_Processor", "ProcessorId");
@@ -44,7 +36,7 @@ namespace SetupTool
             }
         }
 
-        async void ActivateLicense(bool isFromButton = false)
+        async void ActivateLicense(bool isFromButton = false, bool isFromTimer = false)
         {
             btnActivateLicense.Enabled = false;
             licenseKey = String.Empty;
@@ -56,7 +48,7 @@ namespace SetupTool
                 {
                     if (!mskLicenseKey.MaskFull)
                     {
-                        MessageBox.Show("Lütfen doğru bir lisans anahtarı girdiğinizden emin olunuz.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if (!isFromTimer) MessageBox.Show("Lütfen doğru bir lisans anahtarı girdiğinizden emin olunuz.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         btnActivateLicense.Enabled = true;
                         return;
                     }
@@ -65,7 +57,7 @@ namespace SetupTool
                 else
                     licenseKey = licenseKeyGlobal.ProductKey;
             }
-            else if (isFromButton)
+            else if (isFromButton && !isFromTimer)
             {
                 if (!mskLicenseKey.MaskFull)
                 {
@@ -82,61 +74,65 @@ namespace SetupTool
             {
                 if (!checkResult.apiKey.IsActivated)
                 {
-                    DialogResult dialog = MessageBox.Show("Lisansı aktifleştirmek istediğinize emin misiniz?\nLisansı aktifleştirmek kiralama süresini başlatacaktır ve lisans anahtarını bilgisayarınızla eşleştirecektir.", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dialog == DialogResult.Yes)
+                    if (!isFromTimer)
                     {
-                        (bool status, string message) result = await ApiProcessor.ActivateLicense(licenseKey, HWID);
-
-                        if (result.status)
+                        DialogResult dialog = MessageBox.Show("Lisansı aktifleştirmek istediğinize emin misiniz?\nLisansı aktifleştirmek kiralama süresini başlatacaktır ve lisans anahtarını bilgisayarınızla eşleştirecektir.", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dialog == DialogResult.Yes)
                         {
-                            MessageBox.Show(result.message, "Aktifleştirme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            btnHideKey.Visible = true;
+                            (bool status, string message) result = await ApiProcessor.ActivateLicense(licenseKey, HWID);
 
-                            (ApiKey? apiKey, string message) activateResult = await ApiProcessor.CheckLicense(licenseKey);
-                            globalKey = activateResult.apiKey;
-
-                            LicenseKey licenseKeyGlobal = new LicenseKey
+                            if (result.status)
                             {
-                                ProductKey = checkResult.apiKey.ProductKey,
-                                HWID = HWID
-                            };
-                            JsonHelper.WriteKeyToFile(licenseKeyGlobal);
+                                MessageBox.Show(result.message, "Aktifleştirme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                btnHideKey.Visible = true;
 
-                            label1.Visible = false;
-                            isTextHidden = true;
-                            mskLicenseKey.Visible = false;
-                            btnHideKey.BackgroundImage = Resources.see_eye_visible_icon_1878261;
-                            btnActivateLicense.Visible = false;
-                            btnInjectBot.Visible = true;
+                                (ApiKey? apiKey, string message) activateResult = await ApiProcessor.CheckLicense(licenseKey);
+                                globalKey = activateResult.apiKey;
 
-                            if (activateResult.apiKey is not null)
-                            {
-                                lblRemaining.Visible = true;
-                                lblRemaining.Text = $"Lisansin kalan süresi: {activateResult.apiKey.DaysLeft} gün";
-                                timer1.Enabled = true;
+                                LicenseKey licenseKeyGlobal = new LicenseKey
+                                {
+                                    ProductKey = checkResult.apiKey.ProductKey,
+                                    HWID = HWID
+                                };
+                                JsonHelper.WriteKeyToFile(licenseKeyGlobal);
+
+                                label1.Visible = false;
+                                isTextHidden = true;
+                                mskLicenseKey.Visible = false;
+                                btnHideKey.BackgroundImage = Resources.see_eye_visible_icon_1878261;
+                                btnActivateLicense.Visible = false;
+                                btnInjectBot.Visible = true;
+
+                                if (activateResult.apiKey is not null)
+                                {
+                                    lblRemaining.Visible = true;
+                                    lblRemaining.Text = $"Lisansin kalan süresi: {activateResult.apiKey.DaysLeft} gün";
+                                    timer1.Enabled = true;
+                                }
                             }
-                        }
-                        else
-                        {
-                            mskLicenseKey.Clear();
-                            JsonHelper.RemoveLicenseFile();
-                            MessageBox.Show(result.message, "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            else
+                            {
+                                mskLicenseKey.Clear();
+                                JsonHelper.RemoveLicenseFile();
+                                MessageBox.Show(result.message, "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
                 else
                 {
-                    bool isLicenseExpired = checkResult.apiKey.ExpireDate.CompareTo(GetDateTime()) < 0;
+                    bool isLicenseExpired = !checkResult.apiKey.licenseResult;
                     if (isLicenseExpired)
                     {
                         JsonHelper.RemoveLicenseFile();
+                        globalKey = null;
                         MessageBox.Show("Maalesef ki bu lisans anahtarının süresi dolmuş. Lütfen yeni bir lisans anahtarı satın alınız.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
                         if (checkResult.apiKey.HWID == HWID)
                         {
-                            MessageBox.Show("Lisans anahtarı başarıyla etkinleştirildi. İyi oyunlar dileriz!", "Etkinleştirme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (!isFromTimer) MessageBox.Show("Lisans anahtarı başarıyla etkinleştirildi. İyi oyunlar dileriz!", "Etkinleştirme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             btnHideKey.Visible = true;
                             globalKey = checkResult.apiKey;
 
@@ -169,6 +165,11 @@ namespace SetupTool
             else if (isFromButton)
             {
                 mskLicenseKey.Clear();
+                MessageBox.Show(checkResult.message, "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (isFromTimer)
+            {
+                globalKey = null;
                 MessageBox.Show(checkResult.message, "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -230,11 +231,13 @@ namespace SetupTool
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (globalKey is not null)
+            globalKey = null;
+            ActivateLicense(false, true);
+            if (globalKey != null)
             {
-                int daysRemaining = (globalKey.ExpireDate - GetDateTime()).Days;
+                int daysRemaining = globalKey.DaysLeft;
                 lblRemaining.Text = $"Lisansin kalan süresi: {daysRemaining} gün";
-                bool isLicenseExpired = globalKey.ExpireDate.CompareTo(GetDateTime()) < 0;
+                bool isLicenseExpired = !globalKey.licenseResult;
                 if (isLicenseExpired)
                 {
                     btnHideKey.Visible = false;
@@ -248,9 +251,20 @@ namespace SetupTool
                     lblRemaining.Visible = false;
                     lblRemaining.Text = $"Aktif lisans bulunamadı.";
                     timer1.Enabled = false;
-
-                    MessageBox.Show("Maalesef ki lisansınızın süresi doldu. Lütfen yeni bir lisans anahtarı satın alınız.", "Uyarı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+            else
+            {
+                btnHideKey.Visible = false;
+
+                lblLicenseKey.Text = "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX";
+                label1.Visible = true;
+                mskLicenseKey.Visible = true;
+                btnActivateLicense.Visible = true;
+                btnInjectBot.Visible = false;
+                lblRemaining.Visible = false;
+                lblRemaining.Text = $"Aktif lisans bulunamadı.";
+                timer1.Enabled = false;
             }
 
         }
