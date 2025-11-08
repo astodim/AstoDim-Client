@@ -6,7 +6,20 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>icon(2).ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="VCR_OSD_MONO_1.001.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon(2).ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="VCR_OSD_MONO_1.001.ttf" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialSkin.2" Version="2.3.1" />

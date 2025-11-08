@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientMain));
             mskLicenseKey = new MaskedTextBox();
             label1 = new Label();
             label3 = new Label();
@@ -39,6 +40,7 @@
             timer1 = new System.Windows.Forms.Timer(components);
             btnActivateLicense = new Button();
             btnInjectBot = new Button();
+            lblVersion = new Label();
             SuspendLayout();
             // 
             // mskLicenseKey
@@ -130,7 +132,7 @@
             // 
             // timer1
             // 
-            timer1.Interval = 60000;
+            timer1.Interval = 1800000;
             timer1.Tick += timer1_Tick;
             // 
             // btnActivateLicense
@@ -174,6 +176,17 @@
             btnInjectBot.MouseEnter += btnInjectBot_MouseEnter;
             btnInjectBot.MouseLeave += btnInjectBot_MouseLeave;
             // 
+            // lblVersion
+            // 
+            lblVersion.AutoSize = true;
+            lblVersion.Font = new Font("VCR OSD Mono", 12F);
+            lblVersion.ForeColor = Color.DarkRed;
+            lblVersion.Location = new Point(805, 577);
+            lblVersion.Name = "lblVersion";
+            lblVersion.Size = new Size(109, 17);
+            lblVersion.TabIndex = 19;
+            lblVersion.Text = "v0.1 [BETA]";
+            // 
             // frmClientMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -182,6 +195,7 @@
             BackgroundImage = Properties.Resources.ultrakill_red_black_machine_robot_hd_wallpaper_08962df850a0cc58b08cc10e58b2040a3;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(926, 607);
+            Controls.Add(lblVersion);
             Controls.Add(btnInjectBot);
             Controls.Add(btnActivateLicense);
             Controls.Add(label2);
@@ -193,6 +207,7 @@
             Controls.Add(mskLicenseKey);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "frmClientMain";
             StartPosition = FormStartPosition.CenterScreen;
@@ -213,5 +228,6 @@
         private System.Windows.Forms.Timer timer1;
         private Button btnActivateLicense;
         private Button btnInjectBot;
+        private Label lblVersion;
     }
 }
