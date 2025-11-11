@@ -14,6 +14,7 @@ namespace SetupTool
     public partial class frmClientMain : Form
     {
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
+        
 
         private void LoadCustomFont()
         {
@@ -49,11 +50,11 @@ namespace SetupTool
             Font customFontLarge = new Font(privateFonts.Families[0], 15.75F);
             Font customFontXL = new Font(privateFonts.Families[0], 18F);
 
-            label2.Font = customFontSmall;
             label3.Font = customFontSmallUnderline;
             lblLicenseKey.Font = customFontSmall;
             label1.Font = customFontMedium;
             lblRemaining.Font = customFontMedium;
+            mskLicenseKey.Font = customFontXL;
             btnActivateLicense.Font = customFontLarge;
             btnInjectBot.Font = customFontLarge;
             lblVersion.Font = customFontSmallMedium;
@@ -62,10 +63,69 @@ namespace SetupTool
         public frmClientMain()
         {
             InitializeComponent();
+
+            string fontName = "VCR OSD Mono";
+
+            if (!FontInstaller.IsFontInstalled(fontName))
+            {
+                // Extract to app's local data folder
+                string appDataFolder = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    "SetupTool"
+                );
+
+                Directory.CreateDirectory(appDataFolder);
+                string fontPath = Path.Combine(appDataFolder, "VCR_OSD_Mono.ttf");
+
+                // Extract if not already extracted
+                if (!File.Exists(fontPath))
+                {
+                    if (!ExtractEmbeddedFontToFile("SetupTool.Resources.VCR_OSD_MONO.ttf", fontPath))
+                    {
+                        return;
+                    }
+                }
+
+                // Install the font
+                if (FontInstaller.InstallFont(fontPath, fontName + " (TrueType)"))
+                {
+                    
+                }
+            }
+            else
+            {
+                ApplyCustomFont();
+            }
             ApiHelper.InitializeClient();
             
-            ApplyCustomFont();
         }
+
+        private bool ExtractEmbeddedFontToFile(string resourceName, string outputPath)
+        {
+            try
+            {
+                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+
+                using (var stream = assembly.GetManifestResourceStream(resourceName))
+                {
+                    if (stream == null)
+                        return false;
+
+                    using (FileStream fileStream = File.Create(outputPath))
+                    {
+                        stream.CopyTo(fileStream);
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error extracting font: {ex.Message}");
+                return false;
+            }
+        }
+
         string licenseKey;
         string HWID;
         ApiKey? globalKey;
@@ -273,11 +333,14 @@ namespace SetupTool
 
         private void frmClientMain_Load(object sender, EventArgs e)
         {
+            
             if (File.Exists(GlobalVariables.LICENSING_FILE_NAME))
             {
                 licenseKeyGlobal = JsonHelper.ReadKeyFromFile();
             }
             ActivateLicense();
+            ApplyCustomFont();
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -327,22 +390,22 @@ namespace SetupTool
 
         private void btnActivateLicense_MouseEnter(object sender, EventArgs e)
         {
-            btnActivateLicense.BackgroundImage = Resources.pipis2;
+            btnActivateLicense.BackgroundImage = Resources.button2w;
         }
 
         private void btnActivateLicense_MouseLeave(object sender, EventArgs e)
         {
-            btnActivateLicense.BackgroundImage = Resources.pipis;
+            btnActivateLicense.BackgroundImage = Resources.button2;
         }
 
         private void btnInjectBot_MouseEnter(object sender, EventArgs e)
         {
-            btnInjectBot.BackgroundImage = Resources.popos21;
+            btnInjectBot.BackgroundImage = Resources.button1w;
         }
 
         private void btnInjectBot_MouseLeave(object sender, EventArgs e)
         {
-            btnInjectBot.BackgroundImage = Resources.popos1;
+            btnInjectBot.BackgroundImage = Resources.button1;
         }
 
         private void btnInjectBot_Click_1(object sender, EventArgs e)

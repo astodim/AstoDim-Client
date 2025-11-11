@@ -36,23 +36,24 @@
             lblLicenseKey = new Label();
             btnHideKey = new Button();
             lblRemaining = new Label();
-            label2 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             btnActivateLicense = new Button();
             btnInjectBot = new Button();
             lblVersion = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // mskLicenseKey
             // 
             mskLicenseKey.BackColor = Color.Black;
             mskLicenseKey.BorderStyle = BorderStyle.None;
-            mskLicenseKey.Font = new Font("Microsoft Sans Serif", 18F);
+            mskLicenseKey.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
             mskLicenseKey.ForeColor = Color.FromArgb(162, 0, 0);
-            mskLicenseKey.Location = new Point(486, 213);
+            mskLicenseKey.Location = new Point(35, 205);
             mskLicenseKey.Mask = ">AAAAA-AAAAA-AAAAA-AAAAA-AAAAA";
             mskLicenseKey.Name = "mskLicenseKey";
-            mskLicenseKey.Size = new Size(413, 28);
+            mskLicenseKey.Size = new Size(413, 32);
             mskLicenseKey.TabIndex = 2;
             mskLicenseKey.Enter += mskLicenseKey_Enter;
             // 
@@ -61,7 +62,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(162, 0, 0);
-            label1.Location = new Point(484, 183);
+            label1.Location = new Point(32, 175);
             label1.Name = "label1";
             label1.Size = new Size(152, 27);
             label1.TabIndex = 3;
@@ -74,7 +75,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Underline, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkRed;
-            label3.Location = new Point(12, 566);
+            label3.Location = new Point(12, 416);
             label3.Name = "label3";
             label3.Size = new Size(97, 20);
             label3.TabIndex = 6;
@@ -85,11 +86,11 @@
             // 
             lblLicenseKey.AutoSize = true;
             lblLicenseKey.BackColor = Color.Transparent;
-            lblLicenseKey.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLicenseKey.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             lblLicenseKey.ForeColor = Color.DarkRed;
-            lblLicenseKey.Location = new Point(12, 584);
+            lblLicenseKey.Location = new Point(12, 434);
             lblLicenseKey.Name = "lblLicenseKey";
-            lblLicenseKey.Size = new Size(246, 20);
+            lblLicenseKey.Size = new Size(227, 19);
             lblLicenseKey.TabIndex = 7;
             lblLicenseKey.Text = "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX";
             lblLicenseKey.UseCompatibleTextRendering = true;
@@ -102,7 +103,7 @@
             btnHideKey.FlatAppearance.BorderSize = 0;
             btnHideKey.FlatStyle = FlatStyle.Flat;
             btnHideKey.ForeColor = Color.DarkRed;
-            btnHideKey.Location = new Point(255, 572);
+            btnHideKey.Location = new Point(255, 422);
             btnHideKey.Name = "btnHideKey";
             btnHideKey.Size = new Size(30, 30);
             btnHideKey.TabIndex = 8;
@@ -112,28 +113,16 @@
             // 
             // lblRemaining
             // 
-            lblRemaining.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRemaining.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             lblRemaining.ForeColor = Color.FromArgb(162, 0, 0);
-            lblRemaining.Location = new Point(452, 405);
+            lblRemaining.Location = new Point(0, 323);
             lblRemaining.Name = "lblRemaining";
-            lblRemaining.Size = new Size(471, 19);
+            lblRemaining.Size = new Size(485, 19);
             lblRemaining.TabIndex = 14;
             lblRemaining.Text = "Lisansin kalan süresi: 30 gün";
             lblRemaining.TextAlign = ContentAlignment.MiddleCenter;
             lblRemaining.UseCompatibleTextRendering = true;
             lblRemaining.Visible = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(162, 0, 0);
-            label2.Location = new Point(486, 76);
-            label2.Name = "label2";
-            label2.Size = new Size(226, 49);
-            label2.TabIndex = 16;
-            label2.Text = "System Initialization Status: True\r\nCooler Systems: Active\r\nBypassing Security Firewall: Success";
-            label2.UseCompatibleTextRendering = true;
             // 
             // timer1
             // 
@@ -142,7 +131,7 @@
             // 
             // btnActivateLicense
             // 
-            btnActivateLicense.BackgroundImage = Properties.Resources.pipis;
+            btnActivateLicense.BackgroundImage = Properties.Resources.button2;
             btnActivateLicense.BackgroundImageLayout = ImageLayout.Center;
             btnActivateLicense.FlatAppearance.BorderSize = 0;
             btnActivateLicense.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -150,7 +139,7 @@
             btnActivateLicense.FlatStyle = FlatStyle.Flat;
             btnActivateLicense.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnActivateLicense.ForeColor = Color.FromArgb(192, 0, 0);
-            btnActivateLicense.Location = new Point(728, 243);
+            btnActivateLicense.Location = new Point(277, 235);
             btnActivateLicense.Name = "btnActivateLicense";
             btnActivateLicense.Size = new Size(171, 50);
             btnActivateLicense.TabIndex = 17;
@@ -163,7 +152,7 @@
             // 
             // btnInjectBot
             // 
-            btnInjectBot.BackgroundImage = Properties.Resources.popos1;
+            btnInjectBot.BackgroundImage = Properties.Resources.button1;
             btnInjectBot.BackgroundImageLayout = ImageLayout.Stretch;
             btnInjectBot.FlatAppearance.BorderSize = 0;
             btnInjectBot.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -171,7 +160,7 @@
             btnInjectBot.FlatStyle = FlatStyle.Flat;
             btnInjectBot.Font = new Font("Microsoft Sans Serif", 18F);
             btnInjectBot.ForeColor = Color.Red;
-            btnInjectBot.Location = new Point(517, 277);
+            btnInjectBot.Location = new Point(75, 195);
             btnInjectBot.Name = "btnInjectBot";
             btnInjectBot.Size = new Size(335, 125);
             btnInjectBot.TabIndex = 18;
@@ -188,25 +177,34 @@
             lblVersion.AutoSize = true;
             lblVersion.Font = new Font("Microsoft Sans Serif", 12F);
             lblVersion.ForeColor = Color.DarkRed;
-            lblVersion.Location = new Point(805, 577);
+            lblVersion.Location = new Point(355, 430);
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(94, 24);
             lblVersion.TabIndex = 19;
             lblVersion.Text = "v0.1 [BETA]";
             lblVersion.UseCompatibleTextRendering = true;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.astodim_logo;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(12, 34);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(460, 83);
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            // 
             // frmClientMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            BackgroundImage = Properties.Resources.ultrakill_red_black_machine_robot_hd_wallpaper_08962df850a0cc58b08cc10e58b2040a3;
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(926, 607);
+            ClientSize = new Size(484, 461);
+            Controls.Add(pictureBox1);
             Controls.Add(lblVersion);
             Controls.Add(btnInjectBot);
             Controls.Add(btnActivateLicense);
-            Controls.Add(label2);
             Controls.Add(lblRemaining);
             Controls.Add(btnHideKey);
             Controls.Add(lblLicenseKey);
@@ -221,6 +219,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AstoDim Client";
             Load += frmClientMain_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -232,10 +231,10 @@
         private Label lblLicenseKey;
         private Button btnHideKey;
         private Label lblRemaining;
-        private Label label2;
         private System.Windows.Forms.Timer timer1;
         private Button btnActivateLicense;
         private Button btnInjectBot;
         private Label lblVersion;
+        private PictureBox pictureBox1;
     }
 }

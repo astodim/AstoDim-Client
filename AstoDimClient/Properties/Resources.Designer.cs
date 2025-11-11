@@ -73,6 +73,56 @@ namespace SetupTool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap astodim_logo {
+            get {
+                object obj = ResourceManager.GetObject("astodim_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button1 {
+            get {
+                object obj = ResourceManager.GetObject("button1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button1w {
+            get {
+                object obj = ResourceManager.GetObject("button1w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button2 {
+            get {
+                object obj = ResourceManager.GetObject("button2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button2w {
+            get {
+                object obj = ResourceManager.GetObject("button2w", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_see_look_vision_visibility_icon_196494 {
             get {
                 object obj = ResourceManager.GetObject("eye_see_look_vision_visibility_icon_196494", resourceCulture);
@@ -93,46 +143,6 @@ namespace SetupTool.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pipis {
-            get {
-                object obj = ResourceManager.GetObject("pipis", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pipis2 {
-            get {
-                object obj = ResourceManager.GetObject("pipis2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap popos1 {
-            get {
-                object obj = ResourceManager.GetObject("popos1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap popos21 {
-            get {
-                object obj = ResourceManager.GetObject("popos21", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap see_eye_visible_icon_187826 {
             get {
                 object obj = ResourceManager.GetObject("see_eye_visible_icon_187826", resourceCulture);
@@ -146,66 +156,6 @@ namespace SetupTool.Properties {
         internal static System.Drawing.Bitmap see_eye_visible_icon_1878261 {
             get {
                 object obj = ResourceManager.GetObject("see_eye_visible_icon_1878261", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap tomer {
-            get {
-                object obj = ResourceManager.GetObject("tomer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ultrakill_red_black_machine_robot_hd_wallpaper_08962df850a0cc58b08cc10e58b2040a {
-            get {
-                object obj = ResourceManager.GetObject("ultrakill-red-black-machine-robot-hd-wallpaper-08962df850a0cc58b08cc10e58b2040a", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ultrakill_red_black_machine_robot_hd_wallpaper_08962df850a0cc58b08cc10e58b2040a1 {
-            get {
-                object obj = ResourceManager.GetObject("ultrakill-red-black-machine-robot-hd-wallpaper-08962df850a0cc58b08cc10e58b2040a1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ultrakill_red_black_machine_robot_hd_wallpaper_08962df850a0cc58b08cc10e58b2040a2 {
-            get {
-                object obj = ResourceManager.GetObject("ultrakill-red-black-machine-robot-hd-wallpaper-08962df850a0cc58b08cc10e58b2040a2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ultrakill_red_black_machine_robot_hd_wallpaper_08962df850a0cc58b08cc10e58b2040a3 {
-            get {
-                object obj = ResourceManager.GetObject("ultrakill-red-black-machine-robot-hd-wallpaper-08962df850a0cc58b08cc10e58b2040a3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap unnamed {
-            get {
-                object obj = ResourceManager.GetObject("unnamed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
