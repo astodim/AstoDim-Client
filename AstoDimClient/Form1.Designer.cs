@@ -47,23 +47,23 @@
             // 
             mskLicenseKey.BackColor = Color.Black;
             mskLicenseKey.BorderStyle = BorderStyle.None;
-            mskLicenseKey.Font = new Font("VCR OSD Mono", 18F);
+            mskLicenseKey.Font = new Font("Microsoft Sans Serif", 18F);
             mskLicenseKey.ForeColor = Color.FromArgb(162, 0, 0);
             mskLicenseKey.Location = new Point(486, 213);
             mskLicenseKey.Mask = ">AAAAA-AAAAA-AAAAA-AAAAA-AAAAA";
             mskLicenseKey.Name = "mskLicenseKey";
-            mskLicenseKey.Size = new Size(413, 24);
+            mskLicenseKey.Size = new Size(413, 28);
             mskLicenseKey.TabIndex = 2;
             mskLicenseKey.Enter += mskLicenseKey_Enter;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("VCR OSD Mono", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(162, 0, 0);
             label1.Location = new Point(484, 183);
             label1.Name = "label1";
-            label1.Size = new Size(194, 19);
+            label1.Size = new Size(147, 24);
             label1.TabIndex = 3;
             label1.Text = "Lisans Anahtari: ";
             // 
@@ -71,11 +71,11 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Font = new Font("VCR OSD Mono", 9.75F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Underline, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.DarkRed;
             label3.Location = new Point(12, 566);
             label3.Name = "label3";
-            label3.Size = new Size(125, 14);
+            label3.Size = new Size(98, 16);
             label3.TabIndex = 6;
             label3.Text = "Lisans Anahtari";
             // 
@@ -83,11 +83,11 @@
             // 
             lblLicenseKey.AutoSize = true;
             lblLicenseKey.BackColor = Color.Transparent;
-            lblLicenseKey.Font = new Font("VCR OSD Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLicenseKey.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLicenseKey.ForeColor = Color.DarkRed;
             lblLicenseKey.Location = new Point(12, 584);
             lblLicenseKey.Name = "lblLicenseKey";
-            lblLicenseKey.Size = new Size(189, 14);
+            lblLicenseKey.Size = new Size(223, 16);
             lblLicenseKey.TabIndex = 7;
             lblLicenseKey.Text = "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX";
             // 
@@ -109,7 +109,7 @@
             // 
             // lblRemaining
             // 
-            lblRemaining.Font = new Font("VCR OSD Mono", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRemaining.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRemaining.ForeColor = Color.FromArgb(162, 0, 0);
             lblRemaining.Location = new Point(452, 405);
             lblRemaining.Name = "lblRemaining";
@@ -122,11 +122,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("VCR OSD Mono", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(162, 0, 0);
             label2.Location = new Point(486, 76);
             label2.Name = "label2";
-            label2.Size = new Size(289, 42);
+            label2.Size = new Size(229, 48);
             label2.TabIndex = 16;
             label2.Text = "System Initialization Status: True\r\nCooler Systems: Active\r\nBypassing Security Firewall: Success";
             // 
@@ -143,7 +143,7 @@
             btnActivateLicense.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnActivateLicense.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnActivateLicense.FlatStyle = FlatStyle.Flat;
-            btnActivateLicense.Font = new Font("VCR OSD Mono", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnActivateLicense.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnActivateLicense.ForeColor = Color.FromArgb(192, 0, 0);
             btnActivateLicense.Location = new Point(728, 243);
             btnActivateLicense.Name = "btnActivateLicense";
@@ -163,7 +163,7 @@
             btnInjectBot.FlatAppearance.MouseDownBackColor = Color.Transparent;
             btnInjectBot.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnInjectBot.FlatStyle = FlatStyle.Flat;
-            btnInjectBot.Font = new Font("VCR OSD Mono", 18F);
+            btnInjectBot.Font = new Font("Microsoft Sans Serif", 18F);
             btnInjectBot.ForeColor = Color.Red;
             btnInjectBot.Location = new Point(517, 277);
             btnInjectBot.Name = "btnInjectBot";
@@ -179,11 +179,11 @@
             // lblVersion
             // 
             lblVersion.AutoSize = true;
-            lblVersion.Font = new Font("VCR OSD Mono", 12F);
+            lblVersion.Font = new Font("Microsoft Sans Serif", 12F);
             lblVersion.ForeColor = Color.DarkRed;
             lblVersion.Location = new Point(805, 577);
             lblVersion.Name = "lblVersion";
-            lblVersion.Size = new Size(109, 17);
+            lblVersion.Size = new Size(92, 20);
             lblVersion.TabIndex = 19;
             lblVersion.Text = "v0.1 [BETA]";
             // 

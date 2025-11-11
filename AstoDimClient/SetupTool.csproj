@@ -7,9 +7,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>icon(2).ico</ApplicationIcon>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Orbitron-VariableFont_wght.ttf" />
     <None Remove="VCR_OSD_MONO_1.001.ttf" />
   </ItemGroup>
 
@@ -18,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="VCR_OSD_MONO_1.001.ttf" />
+    <EmbeddedResource Include="Resources\Orbitron-VariableFont_wght.ttf" />
   </ItemGroup>
 
   <ItemGroup>
