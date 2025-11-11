@@ -3,6 +3,7 @@ using SetupTool.Properties;
 using System.Drawing.Text;
 using System.Management;
 using System.Net.Http.Headers;
+using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -12,10 +13,58 @@ namespace SetupTool
 {
     public partial class frmClientMain : Form
     {
+        private PrivateFontCollection privateFonts = new PrivateFontCollection();
+
+        private void LoadCustomFont()
+        {
+            // Load font from embedded resource
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            var resourceName = "SetupTool.Resources.VCR_OSD_MONO.ttf";
+
+            using (var stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                if (stream != null)
+                {
+                    byte[] fontData = new byte[stream.Length];
+                    stream.Read(fontData, 0, (int)stream.Length);
+
+                    IntPtr fontPtr = Marshal.AllocCoTaskMem(fontData.Length);
+                    Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+
+                    privateFonts.AddMemoryFont(fontPtr, fontData.Length);
+
+                    Marshal.FreeCoTaskMem(fontPtr);
+                }
+            }
+        }
+
+        private void ApplyCustomFont()
+        {
+            LoadCustomFont();
+
+            Font customFontSmallUnderline = new Font(privateFonts.Families[0], 9.75F, FontStyle.Underline);
+            Font customFontSmall = new Font(privateFonts.Families[0], 9.75F);
+            Font customFontSmallMedium = new Font(privateFonts.Families[0], 12F);
+            Font customFontMedium = new Font(privateFonts.Families[0], 14.25F);
+            Font customFontLarge = new Font(privateFonts.Families[0], 15.75F);
+            Font customFontXL = new Font(privateFonts.Families[0], 18F);
+
+            label2.Font = customFontSmall;
+            label3.Font = customFontSmallUnderline;
+            lblLicenseKey.Font = customFontSmall;
+            label1.Font = customFontMedium;
+            lblRemaining.Font = customFontMedium;
+            btnActivateLicense.Font = customFontLarge;
+            btnInjectBot.Font = customFontLarge;
+            lblVersion.Font = customFontSmallMedium;
+        }
+
         public frmClientMain()
         {
             InitializeComponent();
             ApiHelper.InitializeClient();
+            
+            ApplyCustomFont();
         }
         string licenseKey;
         string HWID;

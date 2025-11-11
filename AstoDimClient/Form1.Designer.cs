@@ -63,9 +63,10 @@
             label1.ForeColor = Color.FromArgb(162, 0, 0);
             label1.Location = new Point(484, 183);
             label1.Name = "label1";
-            label1.Size = new Size(147, 24);
+            label1.Size = new Size(152, 27);
             label1.TabIndex = 3;
             label1.Text = "Lisans Anahtari: ";
+            label1.UseCompatibleTextRendering = true;
             // 
             // label3
             // 
@@ -75,9 +76,10 @@
             label3.ForeColor = Color.DarkRed;
             label3.Location = new Point(12, 566);
             label3.Name = "label3";
-            label3.Size = new Size(98, 16);
+            label3.Size = new Size(97, 20);
             label3.TabIndex = 6;
             label3.Text = "Lisans Anahtari";
+            label3.UseCompatibleTextRendering = true;
             // 
             // lblLicenseKey
             // 
@@ -87,9 +89,10 @@
             lblLicenseKey.ForeColor = Color.DarkRed;
             lblLicenseKey.Location = new Point(12, 584);
             lblLicenseKey.Name = "lblLicenseKey";
-            lblLicenseKey.Size = new Size(223, 16);
+            lblLicenseKey.Size = new Size(246, 20);
             lblLicenseKey.TabIndex = 7;
             lblLicenseKey.Text = "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX";
+            lblLicenseKey.UseCompatibleTextRendering = true;
             // 
             // btnHideKey
             // 
@@ -117,6 +120,7 @@
             lblRemaining.TabIndex = 14;
             lblRemaining.Text = "Lisansin kalan süresi: 30 gün";
             lblRemaining.TextAlign = ContentAlignment.MiddleCenter;
+            lblRemaining.UseCompatibleTextRendering = true;
             lblRemaining.Visible = false;
             // 
             // label2
@@ -126,9 +130,10 @@
             label2.ForeColor = Color.FromArgb(162, 0, 0);
             label2.Location = new Point(486, 76);
             label2.Name = "label2";
-            label2.Size = new Size(229, 48);
+            label2.Size = new Size(226, 49);
             label2.TabIndex = 16;
             label2.Text = "System Initialization Status: True\r\nCooler Systems: Active\r\nBypassing Security Firewall: Success";
+            label2.UseCompatibleTextRendering = true;
             // 
             // timer1
             // 
@@ -150,6 +155,7 @@
             btnActivateLicense.Size = new Size(171, 50);
             btnActivateLicense.TabIndex = 17;
             btnActivateLicense.Text = "Aktiflestir";
+            btnActivateLicense.UseCompatibleTextRendering = true;
             btnActivateLicense.UseVisualStyleBackColor = true;
             btnActivateLicense.Click += btnActivateLicense_Click;
             btnActivateLicense.MouseEnter += btnActivateLicense_MouseEnter;
@@ -170,6 +176,7 @@
             btnInjectBot.Size = new Size(335, 125);
             btnInjectBot.TabIndex = 18;
             btnInjectBot.Text = "Botu Enjekte Et";
+            btnInjectBot.UseCompatibleTextRendering = true;
             btnInjectBot.UseVisualStyleBackColor = true;
             btnInjectBot.Visible = false;
             btnInjectBot.Click += btnInjectBot_Click_1;
@@ -183,9 +190,10 @@
             lblVersion.ForeColor = Color.DarkRed;
             lblVersion.Location = new Point(805, 577);
             lblVersion.Name = "lblVersion";
-            lblVersion.Size = new Size(92, 20);
+            lblVersion.Size = new Size(94, 24);
             lblVersion.TabIndex = 19;
             lblVersion.Text = "v0.1 [BETA]";
+            lblVersion.UseCompatibleTextRendering = true;
             // 
             // frmClientMain
             // 
