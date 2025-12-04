@@ -14,7 +14,7 @@ namespace SetupTool
     public partial class frmClientMain : Form
     {
         private PrivateFontCollection privateFonts = new PrivateFontCollection();
-        
+
 
         private void LoadCustomFont()
         {
@@ -89,7 +89,7 @@ namespace SetupTool
                 // Install the font
                 if (FontInstaller.InstallFont(fontPath, fontName + " (TrueType)"))
                 {
-                    
+
                 }
             }
             else
@@ -97,7 +97,7 @@ namespace SetupTool
                 ApplyCustomFont();
             }
             ApiHelper.InitializeClient();
-            
+
         }
 
         private bool ExtractEmbeddedFontToFile(string resourceName, string outputPath)
@@ -333,7 +333,6 @@ namespace SetupTool
 
         private void frmClientMain_Load(object sender, EventArgs e)
         {
-            
             if (File.Exists(GlobalVariables.LICENSING_FILE_NAME))
             {
                 licenseKeyGlobal = JsonHelper.ReadKeyFromFile();
@@ -411,6 +410,14 @@ namespace SetupTool
         private void btnInjectBot_Click_1(object sender, EventArgs e)
         {
             InjectionHelper.StartInjection();
+        }
+
+        private void linkDiscord_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (e.Link != null)
+            {
+                System.Diagnostics.Process.Start("explorer.exe", "https://discord.gg/tqN6jV2hDv");
+            }
         }
     }
 }

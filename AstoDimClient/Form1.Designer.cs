@@ -41,6 +41,7 @@
             btnInjectBot = new Button();
             lblVersion = new Label();
             pictureBox1 = new PictureBox();
+            linkDiscord = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -177,7 +178,7 @@
             lblVersion.AutoSize = true;
             lblVersion.Font = new Font("Microsoft Sans Serif", 12F);
             lblVersion.ForeColor = Color.DarkRed;
-            lblVersion.Location = new Point(355, 430);
+            lblVersion.Location = new Point(369, 431);
             lblVersion.Name = "lblVersion";
             lblVersion.Size = new Size(94, 24);
             lblVersion.TabIndex = 19;
@@ -194,6 +195,18 @@
             pictureBox1.TabIndex = 20;
             pictureBox1.TabStop = false;
             // 
+            // linkDiscord
+            // 
+            linkDiscord.AutoSize = true;
+            linkDiscord.LinkColor = Color.FromArgb(128, 128, 255);
+            linkDiscord.Location = new Point(426, 411);
+            linkDiscord.Name = "linkDiscord";
+            linkDiscord.Size = new Size(47, 15);
+            linkDiscord.TabIndex = 21;
+            linkDiscord.TabStop = true;
+            linkDiscord.Text = "Discord";
+            linkDiscord.LinkClicked += linkDiscord_LinkClicked;
+            // 
             // frmClientMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -201,6 +214,7 @@
             BackColor = Color.Black;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(484, 461);
+            Controls.Add(linkDiscord);
             Controls.Add(pictureBox1);
             Controls.Add(lblVersion);
             Controls.Add(btnInjectBot);
@@ -236,5 +250,6 @@
         private Button btnInjectBot;
         private Label lblVersion;
         private PictureBox pictureBox1;
+        private LinkLabel linkDiscord;
     }
 }
